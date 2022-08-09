@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld :mes="mes" />
+    <Main :mes="mes" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Main from './components/Main.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Main,
   },
   data() {
     return {
