@@ -1,18 +1,21 @@
 <template>
   <div class="hello">
-    <div v-for="(q, q_index) in questions">
-      <Radio :question='q' v-if="q.answ.type=='radio'">
+    <div v-for="(q, q_index) in questions" :key="q_index">
+      <Radio :question="q" v-if="q.answ.type == 'radio'" />
+      <Number :question="q" v-if="q.answ.type == 'number'" />
     </div>
   </div>
 </template>
 
 <script>
 import Radio from './inputs/Radio.vue';
+import Number from './inputs/Number.vue';
 
 export default {
   name: 'Main',
   components: {
     Radio,
+    Number,
   },
   props: ['mes', 'questions'],
 };
@@ -20,7 +23,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 h3 {
   margin: 40px 0 0;
 }
@@ -34,5 +36,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.input_item {
+  border-bottom: 1px solid;
 }
 </style>

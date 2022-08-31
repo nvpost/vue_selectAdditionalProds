@@ -21,7 +21,6 @@
 <script>
 export default {
   name: 'Radio',
-  components: {},
   props: ['question'],
 };
 </script>

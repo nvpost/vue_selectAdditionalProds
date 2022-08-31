@@ -23,11 +23,7 @@ export default {
             'Укажите как вы планируете осуществлять монтаж датчика. (ГОСТ 8.586.5-2005 пункт 6.3.4)',
           answ: {
             type: 'radio',
-            values: [
-                {options:
-                ['Радиально', 'Наклонно']
-                },
-              ]
+            values: [{ options: ['Радиально', 'Наклонно'] }],
           },
         },
 
@@ -165,5 +161,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.input_item {
+  border-bottom: 1px solid;
 }
 </style>
