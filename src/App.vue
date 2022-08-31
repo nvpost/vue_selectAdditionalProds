@@ -66,7 +66,7 @@ export default {
           id: 5,
           label: 'Датчик с кабельным выводом или коммутационной головкой',
           answ: {
-            type: 'select',
+            type: 'radio',
             values: [
               {
                 default_id: 0,

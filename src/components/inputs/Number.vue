@@ -7,6 +7,8 @@
       :id="'val' + question.id"
       :min="setMin(question.answ.values[0])"
       :max="setMax(question.answ.values[0])"
+      :value="setDefault(question.answ.values[0])"
+      :step="setStep(question.answ.values[0])"
     />
     {{ setMax(question.answ.values[0]) }}
   </div>
@@ -21,15 +23,24 @@ export default {
       if (v.min) {
         return v.min;
       }
-      return 0;
     },
 
     setMax(v) {
-      console.log(v);
       if (v.max) {
         return v.max;
       }
-      return 0;
+    },
+
+    setDefault(v) {
+      if (v.default) {
+        return v.default;
+      }
+    },
+
+    setStep(v) {
+      if (v.step) {
+        return v.step;
+      }
     },
   },
 };
