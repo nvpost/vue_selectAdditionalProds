@@ -11,6 +11,8 @@
       :step="setStep(question.answ.values[0])"
     />
     {{ setMax(question.answ.values[0]) }}
+
+    <button @click="setVal(question.id)">Установить</button>
   </div>
 </template>
 <script>
@@ -18,6 +20,10 @@ export default {
   name: 'Number',
   props: ['question'],
   methods: {
+    setVal(id) {
+      let val = document.querySelector('#val' + id).value;
+      this.$store.commit('addValue', { id: 'qwe' + id, value: val });
+    },
     setMin(v) {
       // console.log(v);
       if (v.min) {
@@ -34,6 +40,8 @@ export default {
     setDefault(v) {
       if (v.default) {
         return v.default;
+      } else {
+        return this.setMin(v);
       }
     },
 
