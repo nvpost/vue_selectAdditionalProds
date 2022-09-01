@@ -11,6 +11,7 @@
           :checked="
             val_index == question.answ.values[0].default_id ? 'checked' : false
           "
+          @change="$store.commit('addValue', {id: 'qwe'+question.id, value: val})"
         />
         <label :for="'val' + question.id">{{ val }}</label>
       </div>
@@ -22,6 +23,11 @@
 export default {
   name: 'Radio',
   props: ['question'],
+  methods: {
+    addAnsw(q) {
+      console.log(q);
+    },
+  },
 };
 </script>
 

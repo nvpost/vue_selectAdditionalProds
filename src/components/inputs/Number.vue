@@ -19,7 +19,7 @@ export default {
   props: ['question'],
   methods: {
     setMin(v) {
-      console.log(v);
+      // console.log(v);
       if (v.min) {
         return v.min;
       }
