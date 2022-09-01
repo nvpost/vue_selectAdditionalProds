@@ -165,5 +165,9 @@ export default {
 
 .input_item {
   border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+.input_item .input_item {
+  border-bottom: 0px;
 }
 </style>
