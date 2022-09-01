@@ -134,6 +134,7 @@ export default {
             ],
           },
         },
+
         // 10
         {
           id: 10,

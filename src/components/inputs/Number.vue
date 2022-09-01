@@ -1,6 +1,7 @@
 <template>
   <div class="input_item">
     <h4>{{ question.id }}) {{ question.label }}</h4>
+
     {{ setMin(question.answ.values[0]) }}
     <input
       type="number"
@@ -25,9 +26,14 @@ export default {
       this.$store.commit('addValue', { id: 'qwe' + id, value: val });
     },
     setMin(v) {
-      // console.log(v);
       if (v.min) {
         return v.min;
+      }
+      if (v.case1) {
+        return v.case1.min;
+        if (this.$store.state.answ['qwe1'] == 'Наклонно') {
+          return v.case2.min;
+        }
       }
     },
 
@@ -35,11 +41,22 @@ export default {
       if (v.max) {
         return v.max;
       }
+      if (v.case1) {
+        return v.case1.max;
+        if (this.$store.state.answ['qwe1'] == 'Наклонно') {
+          return v.case2.max;
+        }
+      }
     },
 
     setDefault(v) {
       if (v.default) {
         return v.default;
+      } else if (v.case1) {
+        return v.case1.step;
+        if (this.$store.state.answ['qwe1'] == 'Наклонно') {
+          return v.case2.step;
+        }
       } else {
         return this.setMin(v);
       }
@@ -48,6 +65,11 @@ export default {
     setStep(v) {
       if (v.step) {
         return v.step;
+      } else if (v.case1) {
+        return v.case1.step;
+        if (this.$store.state.answ['qwe1'] == 'Наклонно') {
+          return v.case2.step;
+        }
       }
     },
   },
