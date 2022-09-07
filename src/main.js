@@ -8,6 +8,8 @@ const store = createStore({
     answ: {
       qwe5: '0',
       qwe4: '0',
+      qwe7: '1',
+      qwe8: '0',
     },
     questions: [
       // 1
@@ -171,6 +173,10 @@ const store = createStore({
         state.result_arr[5] =
           state.questions[5].answ.values[0].options[state.answ['qwe6']];
       }
+      state.result_arr[6] =
+        state.questions[6].answ.values[0].options[state.answ['qwe7']];
+      state.result_arr[7] =
+        state.questions[7].answ.values[0].options[state.answ['qwe8']];
       console.log(state.result_arr);
     },
   },
