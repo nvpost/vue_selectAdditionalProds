@@ -148,6 +148,7 @@ const store = createStore({
     ],
     result_arr: ['ДТС'],
     result_sleeve: ['ГЗ', 0, 0, '1.1', 0],
+    result_lug: ['Б', 0, '1.20х1,5'],
     default_vals: [],
   },
   mutations: {
@@ -156,6 +157,7 @@ const store = createStore({
       console.log(state.answ);
       this.commit('res');
       this.commit('result_sleeve');
+      this.commit('result_lug');
     },
     res(state) {
       if (state.answ['qwe5'] == '0') {
@@ -189,6 +191,16 @@ const store = createStore({
         state.result_sleeve[1] = '16';
       } else {
         state.result_sleeve[1] = '25';
+      }
+    },
+    result_lug(state) {
+      if (state.answ['qwe1'] == '0') {
+        state.result_lug[1] = 'П';
+      } else {
+        state.result_lug[1] = 'У';
+      }
+      if (state.answ['qwe9']) {
+        state.result_lug[3] = state.answ['qwe9'];
       }
     },
   },
