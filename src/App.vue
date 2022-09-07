@@ -12,6 +12,9 @@ export default {
   components: {
     Main,
   },
+  mounted() {
+    console.log('fff');
+  },
   data() {
     return {
       mes: 'hi',
