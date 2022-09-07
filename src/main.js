@@ -10,6 +10,7 @@ const store = createStore({
       qwe4: '0',
       qwe7: '1',
       qwe8: '0',
+      qwe5_1: '0.2',
     },
     questions: [
       // 1
