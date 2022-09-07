@@ -19,7 +19,7 @@ export default {
   props: ['question'],
   methods: {
     setVal(id) {
-      let val = document.querySelector('#val' + id).value;
+      let val = document.querySelector('#val' + id).selectedIndex;
       this.$store.commit('addValue', { id: 'qwe' + id, value: val });
     },
   },
