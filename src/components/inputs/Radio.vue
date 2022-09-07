@@ -11,7 +11,7 @@
             val_index == question.answ.values[0].default_id ? 'checked' : false
           "
           @change="
-            $store.commit('addValue', { id: 'qwe' + question.id, value: val })
+            $store.commit('addValue', { id: 'qwe' + question.id, value: val_index })
           "
         />
         <label :for="'val' + question.id">{{ val }}</label>
