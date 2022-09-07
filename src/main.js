@@ -10,7 +10,6 @@ const store = createStore({
       qwe4: '0',
       qwe7: '1',
       qwe8: '0',
-      qwe5_1: '0.2',
     },
     questions: [
       // 1
@@ -72,7 +71,7 @@ const store = createStore({
           ],
         },
         addition: {
-          id: 5.1,
+          id: 51,
           label: 'Какой длины кабельный вывод в метрах?',
           answ: {
             type: 'number',
@@ -148,6 +147,7 @@ const store = createStore({
       },
     ],
     result_arr: ['ДТС'],
+    result_sleeve: ['ГЗ', 0, 0, '1.1', 0],
     default_vals: [],
   },
   mutations: {
@@ -155,16 +155,20 @@ const store = createStore({
       state.answ[payload.id] = payload.value;
       console.log(state.answ);
       this.commit('res');
+      this.commit('result_sleeve');
     },
     res(state) {
-      if (state.answ['qwe5'] && state.answ['qwe5'] == '0') {
-        if (state.answ['qwe4'] && state.answ['qwe4'] == '0') {
+      if (state.answ['qwe5'] == '0') {
+        if (state.answ['qwe4'] == '0') {
           state.result_arr[1] = '035';
         } else {
           state.result_arr[1] = '045';
         }
       } else {
-        if (state.answ['qwe4'] && state.answ['qwe4'] == '0') {
+        //Добавляем длину по умолчанию для п5 кабельный вывод
+        state.result_arr[9] = '0.2';
+
+        if (state.answ['qwe4'] == '0') {
           state.result_arr[1] = '064';
         } else {
           state.result_arr[1] = '074';
@@ -179,6 +183,13 @@ const store = createStore({
       state.result_arr[7] =
         state.questions[7].answ.values[0].options[state.answ['qwe8']];
       console.log(state.result_arr);
+    },
+    result_sleeve(state) {
+      if (state.answ['qwe4'] == '0') {
+        state.result_sleeve[1] = '16';
+      } else {
+        state.result_sleeve[1] = '25';
+      }
     },
   },
 });

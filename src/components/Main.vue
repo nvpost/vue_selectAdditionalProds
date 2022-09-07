@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     {{ $store.state.result_arr }}
+    {{ $store.state.result_sleeve }}
     <div v-for="(q, q_index) in questions" :key="q_index">
       <Radio :question="q" v-if="q.answ.type == 'radio'" />
       <Number :question="q" v-if="q.answ.type == 'number'" />
