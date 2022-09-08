@@ -10,6 +10,7 @@ const store = createStore({
       qwe4: '0',
       qwe7: '1',
       qwe8: '0',
+      qwe10: '0',
     },
     questions: [
       // 1
@@ -149,6 +150,7 @@ const store = createStore({
     result_arr: ['ДТС'],
     result_sleeve: ['ГЗ', 0, 0, '1.1', 0],
     result_lug: ['Б', 0, '1.20х1,5'],
+    result_cable: 'МКЭШ 3х0,5',
     default_vals: [],
   },
   mutations: {
@@ -185,7 +187,15 @@ const store = createStore({
       state.result_arr[7] =
         state.questions[7].answ.values[0].options[state.answ['qwe8']];
       console.log(state.result_arr);
+
+      //Расчет кабеля
+      if (state.answ['qwe8'] == '1') {
+        state.result_cable = 'МКЭШ 5х0,75';
+      } else {
+        state.result_cable = 'МКЭШ 3х0,5';
+      }
     },
+
     result_sleeve(state) {
       if (state.answ['qwe4'] == '0') {
         state.result_sleeve[1] = '16';
@@ -201,6 +211,9 @@ const store = createStore({
       }
       if (state.answ['qwe9']) {
         state.result_lug[3] = state.answ['qwe9'];
+      }
+      if (state.answ['qwe10']) {
+        state.result_lug[4] = parseInt(state.answ['qwe10']) + 1;
       }
     },
   },
