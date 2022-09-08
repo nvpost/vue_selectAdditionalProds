@@ -8,8 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "events": "^3.3.0",
     "vue": "3.2.26",
-    "vuex": "^4.0.2"
+    "vuex": "4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.0",
