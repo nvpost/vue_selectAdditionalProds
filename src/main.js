@@ -24,6 +24,7 @@ const store = createStore({
   },
   mutations: {
     addValue(state, payload) {
+      console.log(payload);
       state.answ[payload.id] = payload.value;
       console.log(state.answ);
       this.commit('res');
@@ -38,9 +39,6 @@ const store = createStore({
           state.result_arr[1] = '045';
         }
       } else {
-        //Добавляем длину по умолчанию для п5 кабельный вывод
-        state.result_arr[9] = '0.2';
-
         if (state.answ['qwe4'] == '0') {
           state.result_arr[1] = '064';
         } else {
@@ -48,7 +46,7 @@ const store = createStore({
         }
       }
       if (state.answ['qwe6']) {
-        state.result_arr[5] =
+        state.result_arr[2] =
           state.questions[5].answ.values[0].options[state.answ['qwe6']];
       }
       state.result_arr[6] =
