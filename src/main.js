@@ -5,12 +5,15 @@ const { createApp } = require('vue');
 
 import { questions_data } from './data/questions.js';
 
+import { radially, aslant } from './data/calculation.js';
+
 const store = createStore({
   state: {
     dd: questions_data,
     answ: {
-      qwe5: '0',
       qwe4: '0',
+      qwe5: '0',
+      qwe6: '0',
       qwe7: '1',
       qwe8: '0',
       qwe10: '0',
@@ -21,6 +24,7 @@ const store = createStore({
     result_lug: ['Б', 0, '1.20х1,5'],
     result_cable: 'МКЭШ 3х0,5',
     default_vals: [],
+    radially_val: 0,
   },
   mutations: {
     addValue(state, payload) {
@@ -30,6 +34,15 @@ const store = createStore({
       this.commit('res');
       this.commit('result_sleeve');
       this.commit('result_lug');
+
+      if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
+        state.radially_val = radially(
+          state.answ.qwe2,
+          state.answ.qwe3,
+          state.answ.qwe9
+        );
+        console.log(state.radially_val);
+      }
     },
     res(state) {
       if (state.answ['qwe5'] == '0') {
