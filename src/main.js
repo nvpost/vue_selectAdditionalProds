@@ -38,7 +38,6 @@ const store = createStore({
 
       // расчет длины
       if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
-        console.log('расчет длины');
         if (state.answ.qwe1 == 1) {
           state.result_radially = 0;
           state.result_aslant = aslant(
@@ -55,12 +54,12 @@ const store = createStore({
           );
         }
 
-        console.log(
-          'radially',
-          state.result_radially,
-          'aslant',
-          state.result_aslant
-        );
+        // console.log(
+        //   'radially',
+        //   state.result_radially,
+        //   'aslant',
+        //   state.result_aslant
+        // );
       }
       console.log(state.answ);
     },
