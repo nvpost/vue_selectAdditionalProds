@@ -45,16 +45,21 @@ const store = createStore({
           state.result_arr[1] = '074';
         }
       }
+      //чувствительный элемент
       if (state.answ['qwe6']) {
         state.result_arr[2] =
           state.questions[5].answ.values[0].options[state.answ['qwe6']];
       }
-      state.result_arr[6] =
+      //Класс допуска
+      state.result_arr[3] =
         state.questions[6].answ.values[0].options[state.answ['qwe7']];
-      state.result_arr[7] =
+      //Схема соединения
+      state.result_arr[4] =
         state.questions[7].answ.values[0].options[state.answ['qwe8']];
       console.log(state.result_arr);
 
+      //Длина монтажной части
+      state.result_arr[5] = 'L1';
       //Расчет кабеля
       if (state.answ['qwe8'] == '1') {
         state.result_cable = 'МКЭШ 5х0,75';
