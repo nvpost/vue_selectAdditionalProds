@@ -1,8 +1,12 @@
 <template>
+    <div class="reselts">
+    <strong>Результат</strong><br>
+      {{ $store.state.result_arr }}<br />
+      {{ $store.state.result_sleeve }}<br />
+      {{ $store.state.result_lug }}<br />
+    </div>
   <div class="hello">
-    {{ $store.state.result_arr }}<br />
-    {{ $store.state.result_sleeve }}<br />
-    {{ $store.state.result_lug }}<br />
+
     <div v-for="(q, q_index) in questions" :key="q_index">
       <Radio :question="q" v-if="q.answ.type == 'radio'" />
       <Number :question="q" v-if="q.answ.type == 'number'" />
@@ -46,5 +50,15 @@ a {
 
 .input_item {
   border-bottom: 1px solid;
+}
+.hello{
+  margin-bottom: 100px;
+}
+.reselts{
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  bottom:0px;
+  padding: 10px;
 }
 </style>
