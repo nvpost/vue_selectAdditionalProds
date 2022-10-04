@@ -54,12 +54,6 @@ const store = createStore({
           );
         }
 
-        // console.log(
-        //   'radially',
-        //   state.result_radially,
-        //   'aslant',
-        //   state.result_aslant
-        // );
       }
       console.log(state.answ);
     },

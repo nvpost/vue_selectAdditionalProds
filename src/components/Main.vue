@@ -1,12 +1,11 @@
 <template>
-    <div class="reselts">
-    <strong>Результат</strong><br>
-      {{ $store.state.result_arr }}<br />
-      {{ $store.state.result_sleeve }}<br />
-      {{ $store.state.result_lug }}<br />
-    </div>
+  <div class="results">
+    <strong>Результат</strong>
+    <p><b>Датчик:</b> {{ $store.state.result_arr.join('.') }}</p>
+    <p><b>Гильза:</b> {{ $store.state.result_sleeve.join('.') }}</p>
+    <p><b>Бобышка:</b> {{ $store.state.result_lug.join('.') }}</p>
+  </div>
   <div class="hello">
-
     <div v-for="(q, q_index) in questions" :key="q_index">
       <Radio :question="q" v-if="q.answ.type == 'radio'" />
       <Number :question="q" v-if="q.answ.type == 'number'" />
@@ -51,14 +50,15 @@ a {
 .input_item {
   border-bottom: 1px solid;
 }
-.hello{
-  margin-bottom: 100px;
+.hello {
+  margin-bottom: 180px;
 }
-.reselts{
+.results {
   position: fixed;
   background-color: #fff;
   width: 100%;
-  bottom:0px;
+  bottom: 0px;
   padding: 10px;
+  border-top: 1px solid #ccc;
 }
 </style>
