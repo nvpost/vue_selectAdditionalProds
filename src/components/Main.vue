@@ -27,6 +27,9 @@ export default {
     Select,
   },
   props: ['mes', 'questions'],
+  created() {
+    this.$store.commit('setDefaultAnsw');
+  },
 };
 </script>
 

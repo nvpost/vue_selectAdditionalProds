@@ -11,6 +11,9 @@ const store = createStore({
   state: {
     dd: questions_data,
     answ: {
+      qwe1: '0',
+      qwe2: 28,
+      qwe3: 4,
       qwe4: '0',
       qwe5: '0',
       qwe6: '0',
@@ -28,6 +31,20 @@ const store = createStore({
     result_aslant: 0,
   },
   mutations: {
+    setDefaultAnsw(state) {
+      state.answ = {
+        qwe1: 0,
+        qwe2: 28,
+        qwe3: 4,
+        qwe4: 0,
+        qwe5: 0,
+        qwe6: 0,
+        qwe7: 1,
+        qwe8: 0,
+        qwe9: 5,
+        qwe10: 0,
+      };
+    },
     addValue(state, payload) {
       // console.log(payload);
       state.answ[payload.id] = payload.value;
@@ -53,7 +70,6 @@ const store = createStore({
             state.answ.qwe9
           );
         }
-
       }
       console.log(state.answ);
     },

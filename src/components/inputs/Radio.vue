@@ -5,16 +5,19 @@
       <div class="input_item_value">
         <input
           type="Radio"
-          :id="'val' + question.id"
+          :id="'val' + question.id + '_' + val_index"
           :name="'val' + question.id"
           :checked="
             val_index == question.answ.values[0].default_id ? 'checked' : false
           "
           @change="
-            $store.commit('addValue', { id: 'qwe' + question.id, value: val_index })
+            $store.commit('addValue', {
+              id: 'qwe' + question.id,
+              value: val_index,
+            })
           "
         />
-        <label :for="'val' + question.id">{{ val }}</label>
+        <label :for="'val' + question.id + '_' + val_index">{{ val }}</label>
       </div>
     </template>
 
