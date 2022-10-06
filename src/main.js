@@ -27,8 +27,8 @@ const store = createStore({
     result_lug: ['Б', 0, '1.20х1,5'],
     result_cable: 'МКЭШ 3х0,5',
     default_vals: [],
-    result_radially: 0,
-    result_aslant: 0,
+    result_radially_Lx: 0,
+    result_aslant_Lx: 0,
   },
   mutations: {
     setDefaultAnsw(state) {
@@ -53,22 +53,27 @@ const store = createStore({
       this.commit('result_sleeve');
       this.commit('result_lug');
 
-      // расчет длины
+      // расчет длины и условий из "Результат и рекомендации"
       if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
         if (state.answ.qwe1 == 1) {
           state.result_radially = 0;
-          state.result_aslant = aslant(
+          let res_aslant = aslant(
             state.answ.qwe2,
             state.answ.qwe3,
             state.answ.qwe9
           );
+          state.result_aslant_Lx = res_aslant['lx'];
+          state.result_aslant_condition1 = res_aslant['c1'];
         } else {
           state.result_aslant = 0;
-          state.result_radially = radially(
+          let res_radially = radially(
             state.answ.qwe2,
             state.answ.qwe3,
             state.answ.qwe9
           );
+
+          state.result_radially_Lx = res_radially['lx'];
+          state.result_radially_condition1 = res_radially['c1'];
         }
       }
       console.log(state.answ);
