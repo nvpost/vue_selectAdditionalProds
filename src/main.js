@@ -5,7 +5,7 @@ const { createApp } = require('vue');
 
 import { questions_data } from './data/questions.js';
 
-import { radially, aslant, fittingMethod } from './data/calculation.js';
+import { fittingMethod } from './data/calculation.js';
 
 const store = createStore({
   state: {
