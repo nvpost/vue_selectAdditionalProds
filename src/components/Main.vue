@@ -1,4 +1,13 @@
 <template>
+  <div
+    class="condition_message"
+    id="condition_message"
+    v-if="$store.state.condition1 > 1"
+  >
+    
+    <ConditionMessage1 />
+  </div>
+
   <div class="results">
     <strong>Результат</strong>
     <p><b>Датчик:</b> {{ $store.state.result_arr.join('.') }}</p>
@@ -19,12 +28,15 @@ import Radio from './inputs/Radio.vue';
 import Number from './inputs/Number.vue';
 import Select from './inputs/Select.vue';
 
+import ConditionMessage1 from './interface/ConditionMessage1.vue';
+
 export default {
   name: 'Main',
   components: {
     Radio,
     Number,
     Select,
+    ConditionMessage1,
   },
   props: ['mes', 'questions'],
   created() {

@@ -5,7 +5,7 @@ const { createApp } = require('vue');
 
 import { questions_data } from './data/questions.js';
 
-import { radially, aslant } from './data/calculation.js';
+import { radially, aslant, fittingMethod } from './data/calculation.js';
 
 const store = createStore({
   state: {
@@ -29,6 +29,9 @@ const store = createStore({
     default_vals: [],
     result_radially_Lx: 0,
     result_aslant_Lx: 0,
+    result_radially_condition1: false,
+    lx: 0,
+    condition1: false,
   },
   mutations: {
     setDefaultAnsw(state) {
@@ -44,6 +47,7 @@ const store = createStore({
         qwe9: 5,
         qwe10: 0,
       };
+      result_condition1: false;
     },
     addValue(state, payload) {
       // console.log(payload);
@@ -54,30 +58,55 @@ const store = createStore({
       this.commit('result_lug');
 
       // расчет длины и условий из "Результат и рекомендации"
-      if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
-        if (state.answ.qwe1 == 1) {
-          state.result_radially = 0;
-          let res_aslant = aslant(
-            state.answ.qwe2,
-            state.answ.qwe3,
-            state.answ.qwe9
-          );
-          state.result_aslant_Lx = res_aslant['lx'];
-          state.result_aslant_condition1 = res_aslant['c1'];
-        } else {
-          state.result_aslant = 0;
-          let res_radially = radially(
-            state.answ.qwe2,
-            state.answ.qwe3,
-            state.answ.qwe9
-          );
 
-          state.result_radially_Lx = res_radially['lx'];
-          state.result_radially_condition1 = res_radially['c1'];
-        }
+      //переписать на единую функцию
+
+      // qwe1 = 0 или 1 - указатель на тип монтажа
+      if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
+        let fitting_res = fittingMethod(
+          state.answ.qwe1,
+          state.answ.qwe2,
+          state.answ.qwe3,
+          state.answ.qwe9
+        );
+
+        state.lx = fitting_res['lx'];
+        state.condition1 = fitting_res['c1'];
       }
+
+      // if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
+      //   if (state.answ.qwe1 == 1) {
+      //     state.result_radially = 0;
+      //     let res_aslant = aslant(
+      //       state.answ.qwe2,
+      //       state.answ.qwe3,
+      //       state.answ.qwe9
+      //     );
+      //     console.log('res_aslant', res_aslant);
+      //     state.result_aslant_Lx = res_aslant['lx'];
+      //     state.result_condition1 = res_aslant['c1'];
+      //   } else {
+      //     state.result_aslant = 0;
+      //     let res_radially = radially(
+      //       state.answ.qwe2,
+      //       state.answ.qwe3,
+      //       state.answ.qwe9
+      //     );
+      //     console.log('res_radially', res_radially);
+      //     state.result_radially_Lx = res_radially['lx'];
+      //     state.result_condition1 = res_radially['c1'];
+      //   }
+      //   console.log(state.result_aslant_Lx, state.result_radially_Lx);
+      //   //console.log(state.result_condition1);
+
+      //   // this.showNotConditionMessage(state.result_radially_condition1, 0);
+      // }
       console.log(state.answ);
     },
+    // showNotConditionMessage(c1, c2) {
+    //   if (c1 > 1) {
+    //   }
+    // },
     res(state) {
       if (state.answ['qwe5'] == '0') {
         if (state.answ['qwe4'] == '0') {
