@@ -1,5 +1,5 @@
 <template>
-
+<div class="message_block error">
   <div class="close" @click="$store.state.condition2=0">&#128473;</div>
     <p>
       Рекомендация минимальной длины погружения в {{$store.state.answ.answ7?75:80}} мм для класса допуска {{$store.state.answ.answ7?'В':'А'}} не проходит.
@@ -16,7 +16,7 @@
     </ul>
     </p>
   </div>
-
+</div>
 </template>
 <script>
 export default {

@@ -16,15 +16,16 @@ function fittingMethod(fitting, p2, p3, p7, p9) {
   let prepared_lx = Math.round(lx / 10) * 10;
 
   //Вычисляем Условие1
-  //П Коэффициент погружения = (Lх-П9-4)/П2
   //У Коэффициент погружения = (Lх-П9-4+14) *0,7/П2
+  //П Коэффициент погружения = (Lх-П9-4)/П2
+
   let c1 = fitting ? ((lx - p9 - 4 + 14) * 0.7) / p2 : (lx - p9 - 4) / p2;
 
   //Если П7 - А то lx<80, для В lx <75 возвращем false,
   //т.е. максимальная глубина больше - условие не пройдено
   let c2 = p7 ? lx < 75 : lx < 80;
 
-  console.log(parseFloat(p2), p3_value, parseFloat(p9));
+  console.log(parseFloat(p2), p3_value, parseFloat(p9), lx);
   console.log('lx', lx);
   console.log('c1', c1);
   console.log('c2', c2);

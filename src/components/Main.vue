@@ -7,7 +7,6 @@
     <ConditionMessage1 />
   </div>
 
-  {{ $store.state.condition1 }}
   <div
     class="condition_message"
     id="condition_message"
@@ -15,7 +14,7 @@
   >
     <ConditionMessage2 />
   </div>
-
+  {{ $store.state.condition1 }}, {{ $store.state.condition2 }}
   <div class="results">
     <strong>Результат</strong>
     <p><b>Датчик:</b> {{ $store.state.result_arr.join('.') }}</p>
@@ -85,5 +84,27 @@ a {
   bottom: 0px;
   padding: 10px;
   border-top: 1px solid #ccc;
+}
+
+.message_block {
+  border: 1px solid;
+  padding: 10px;
+  position: relative;
+}
+.error {
+  background-color: #ffcdd2;
+}
+.success {
+  background-color: #81c784;
+}
+.success span {
+  line-height: 0;
+  font-size: 26px;
+}
+.close {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  cursor: pointer;
 }
 </style>

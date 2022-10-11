@@ -30,27 +30,5 @@ export default {
 </script>
 
 <style scoped>
-.message_block{
-  border: 1px solid;
-  padding: 10px;
-  position:relative;
-}
-.error{
-  background-color: #ffcdd2;
-  /* color: #fff; */
 
-}
-.success{
-background-color: #81c784
-}
-.success span{
-  line-height: 0;
-  font-size: 26px;
-}
-.close{
-  position: absolute;
-    right: 15px;
-    top: 6px;
-    cursor: pointer;
-}
 </style>

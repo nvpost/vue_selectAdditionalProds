@@ -71,6 +71,7 @@ const store = createStore({
 
       state.prepared_lx = fitting_res['prepared_lx'];
       state.condition1 = fitting_res['c1'];
+      state.condition2 = fitting_res['c2'];
       //}
 
       console.log(state.answ);
