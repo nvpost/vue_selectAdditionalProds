@@ -2,10 +2,18 @@
   <div
     class="condition_message"
     id="condition_message"
-    v-if="$store.state.condition1 > 1"
+    v-if="$store.state.condition1"
   >
-    
     <ConditionMessage1 />
+  </div>
+
+  {{ $store.state.condition1 }}
+  <div
+    class="condition_message"
+    id="condition_message"
+    v-if="$store.state.condition2 === false"
+  >
+    <ConditionMessage2 />
   </div>
 
   <div class="results">
@@ -29,6 +37,7 @@ import Number from './inputs/Number.vue';
 import Select from './inputs/Select.vue';
 
 import ConditionMessage1 from './interface/ConditionMessage1.vue';
+import ConditionMessage2 from './interface/ConditionMessage2.vue';
 
 export default {
   name: 'Main',
@@ -37,6 +46,7 @@ export default {
     Number,
     Select,
     ConditionMessage1,
+    ConditionMessage2,
   },
   props: ['mes', 'questions'],
   created() {

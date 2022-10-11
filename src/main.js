@@ -26,12 +26,10 @@ const store = createStore({
     result_sleeve: ['ГЗ', 0, 0, '1.1', 0],
     result_lug: ['Б', 0, '1.20х1,5'],
     result_cable: 'МКЭШ 3х0,5',
-    default_vals: [],
-    result_radially_Lx: 0,
-    result_aslant_Lx: 0,
-    result_radially_condition1: false,
-    lx: 0,
-    condition1: false,
+
+    prepared_lx: 0, // округленный Lx
+    condition1: 0, // нужна цифра
+    condition2: 0, // приходит булево значение
   },
   mutations: {
     setDefaultAnsw(state) {
@@ -62,51 +60,22 @@ const store = createStore({
       //переписать на единую функцию
 
       // qwe1 = 0 или 1 - указатель на тип монтажа
-      if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
-        let fitting_res = fittingMethod(
-          state.answ.qwe1,
-          state.answ.qwe2,
-          state.answ.qwe3,
-          state.answ.qwe9
-        );
+      //if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
+      let fitting_res = fittingMethod(
+        state.answ.qwe1,
+        state.answ.qwe2,
+        state.answ.qwe3,
+        state.answ.qwe7,
+        state.answ.qwe9
+      );
 
-        state.lx = fitting_res['lx'];
-        state.condition1 = fitting_res['c1'];
-      }
+      state.prepared_lx = fitting_res['prepared_lx'];
+      state.condition1 = fitting_res['c1'];
+      //}
 
-      // if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
-      //   if (state.answ.qwe1 == 1) {
-      //     state.result_radially = 0;
-      //     let res_aslant = aslant(
-      //       state.answ.qwe2,
-      //       state.answ.qwe3,
-      //       state.answ.qwe9
-      //     );
-      //     console.log('res_aslant', res_aslant);
-      //     state.result_aslant_Lx = res_aslant['lx'];
-      //     state.result_condition1 = res_aslant['c1'];
-      //   } else {
-      //     state.result_aslant = 0;
-      //     let res_radially = radially(
-      //       state.answ.qwe2,
-      //       state.answ.qwe3,
-      //       state.answ.qwe9
-      //     );
-      //     console.log('res_radially', res_radially);
-      //     state.result_radially_Lx = res_radially['lx'];
-      //     state.result_condition1 = res_radially['c1'];
-      //   }
-      //   console.log(state.result_aslant_Lx, state.result_radially_Lx);
-      //   //console.log(state.result_condition1);
-
-      //   // this.showNotConditionMessage(state.result_radially_condition1, 0);
-      // }
       console.log(state.answ);
     },
-    // showNotConditionMessage(c1, c2) {
-    //   if (c1 > 1) {
-    //   }
-    // },
+
     res(state) {
       if (state.answ['qwe5'] == '0') {
         if (state.answ['qwe4'] == '0') {
