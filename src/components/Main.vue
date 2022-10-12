@@ -19,10 +19,6 @@
 </template>
 
 <script>
-// import Radio from './inputs/Radio.vue';
-// import Number from './inputs/Number.vue';
-// import Select from './inputs/Select.vue';
-
 import ConditionMessage1 from './interface/ConditionMessage1.vue';
 import ConditionMessage2 from './interface/ConditionMessage2.vue';
 
