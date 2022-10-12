@@ -20,7 +20,7 @@ import Number from './inputs/Number.vue';
 import Select from './inputs/Select.vue';
 
 export default {
-  name: 'MainContent',
+  name: 'QuestionsContent',
   props: ['questions'],
   components: {
     Radio,

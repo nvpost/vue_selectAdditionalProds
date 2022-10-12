@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import { createStore } from 'vuex';
 
-const { createApp } = require('vue');
+// const { createApp } = require('vue');
 
 import { questions_data } from './data/questions.js';
 

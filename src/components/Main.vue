@@ -16,28 +16,28 @@
   </div>
   {{ $store.state.condition1 }}, {{ $store.state.condition2 }}
 
-<MainContent :questions='questions'>
+<QuestionsContent :questions='questions'>
 </template>
 
 <script>
-import Radio from './inputs/Radio.vue';
-import Number from './inputs/Number.vue';
-import Select from './inputs/Select.vue';
+// import Radio from './inputs/Radio.vue';
+// import Number from './inputs/Number.vue';
+// import Select from './inputs/Select.vue';
 
 import ConditionMessage1 from './interface/ConditionMessage1.vue';
 import ConditionMessage2 from './interface/ConditionMessage2.vue';
 
-import MainContent from './MainContent.vue';
+import QuestionsContent from './QuestionsContent.vue';
 
 export default {
   name: 'Main',
   components: {
-    Radio,
-    Number,
-    Select,
+    // Radio,
+    // Number,
+    // Select,
     ConditionMessage1,
     ConditionMessage2,
-    MainContent
+    QuestionsContent
   },
   props: ['mes', 'questions'],
   created() {
