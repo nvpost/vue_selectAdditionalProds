@@ -14,16 +14,11 @@
   >
     <ConditionMessage2 />
   </div>
-  {{ $store.state.condition1 }}, {{ $store.state.condition2 }}
-
-<QuestionsContent :questions='questions'>
+  <span> {{ $store.state.condition1 }}, {{ $store.state.condition2 }} </span>
+  <QuestionsContent :questions="questions" />
 </template>
 
 <script>
-// import Radio from './inputs/Radio.vue';
-// import Number from './inputs/Number.vue';
-// import Select from './inputs/Select.vue';
-
 import ConditionMessage1 from './interface/ConditionMessage1.vue';
 import ConditionMessage2 from './interface/ConditionMessage2.vue';
 
@@ -37,7 +32,7 @@ export default {
     // Select,
     ConditionMessage1,
     ConditionMessage2,
-    QuestionsContent
+    QuestionsContent,
   },
   props: ['mes', 'questions'],
   created() {
