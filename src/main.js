@@ -28,6 +28,8 @@ const store = createStore({
     result_cable: 'МКЭШ 3х0,5',
 
     prepared_lx: 0, // округленный Lx
+    max_lx: 0, // округленный вверх Lx
+    min_lx: 0, // округленный вниз Lx
     condition1: 0, // нужна цифра
     condition2: 0, // приходит булево значение
   },
@@ -70,6 +72,8 @@ const store = createStore({
       );
 
       state.prepared_lx = fitting_res['prepared_lx'];
+      state.max_lx = fitting_res['max_lx'];
+      state.min_lx = fitting_res['min_lx'];
       state.condition1 = fitting_res['c1'];
       state.condition2 = fitting_res['c2'];
       //}
