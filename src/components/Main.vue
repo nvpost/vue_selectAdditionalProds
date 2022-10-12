@@ -14,8 +14,9 @@
   >
     <ConditionMessage2 />
   </div>
+  <span>
   {{ $store.state.condition1 }}, {{ $store.state.condition2 }}
-
+  </span>
 <QuestionsContent :questions='questions'>
 </template>
 
