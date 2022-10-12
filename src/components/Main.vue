@@ -26,9 +26,6 @@ import QuestionsContent from './QuestionsContent.vue';
 export default {
   name: 'Main',
   components: {
-    // Radio,
-    // Number,
-    // Select,
     ConditionMessage1,
     ConditionMessage2,
     QuestionsContent,

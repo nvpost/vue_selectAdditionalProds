@@ -13,25 +13,30 @@ function fittingMethod(fitting, p2, p3, p7, p9) {
     ? (parseFloat(p2) * parseFloat(p3_value)) / 0.7 + parseFloat(p9) + 4 - 14
     : parseFloat(p2) * parseFloat(p3_value) + parseFloat(p9) + 4;
 
-  let prepared_lx = Math.round(lx / 10) * 10;
+  // let prepared_lx = Math.round(lx / 10) * 10;
+  let prepared_lx = Math.ceil(lx / 10) * 10;
 
+  //min_lx=L2, max_lx = L3
+  let min_lx = Math.floor(lx / 10) * 10;
+  let max_lx = Math.ceil(lx / 10) * 10;
 
-  
-  
   //Вычисляем Условие1
   //У Коэффициент погружения = (Lх-П9-4+14) *0,7/П2
   //П Коэффициент погружения = (Lх-П9-4)/П2
 
-  let c1 = fitting ? ((lx - p9 - 4 + 14) * 0.7) / p2 : (lx - p9 - 4) / p2;
+  let c1_min = fitting
+    ? ((min_lx - p9 - 4 + 14) * 0.7) / p2
+    : (min_lx - p9 - 4) / p2;
 
+  let c1_max = fitting
+    ? ((max_lx - p9 - 4 + 14) * 0.7) / p2
+    : (max_lx - p9 - 4) / p2;
 
-    //min_lx=L2, max_lx = L3
-    let min_lx = Math.floor(lx / 10) * 10;
-    let max_lx = Math.ceil(lx / 10) * 10;
-  
-    // Вычислим на какой коэффициент погрузится датчик при этих длинах:
-    let k2 = (min_lx-parseFloat(p9)-4)/parseFloat(p2)
-    let k3 = (max_lx-parseFloat(p9)-4)/parseFloat(p2)
+  let c1 = c1_min < 1 && c1_max < 1;
+
+  // Вычислим на какой коэффициент погрузится датчик при этих длинах:
+  let k2 = (min_lx - parseFloat(p9) - 4) / parseFloat(p2);
+  let k3 = (max_lx - parseFloat(p9) - 4) / parseFloat(p2);
 
   //Если П7 - А то lx<80, для В lx <75 возвращем false,
   //т.е. максимальная глубина больше - условие не пройдено
@@ -41,10 +46,23 @@ function fittingMethod(fitting, p2, p3, p7, p9) {
   // Lпр2 = L2-G9-4=60-25-4 = 32 мм (погружное расчётное) < 75
   // Lпр3 = L3-G9-4=80-25-4 = 51 мм (погружное расчётное) < 75
 
-  let l_submerge2 = c2 ? min_lx - parseFloat(p9) - 4 : false 
-  let l_submerge3 = c2 ? max_lx - parseFloat(p9) - 4 : false 
+  let l_submerge2 = c2 ? min_lx - parseFloat(p9) - 4 : false;
+  let l_submerge3 = c2 ? max_lx - parseFloat(p9) - 4 : false;
 
-  // console.log(parseFloat(p2), p3_value, parseFloat(p9), lx);
+  console.log(
+    'П2:',
+    parseFloat(p2),
+    ' / П3:',
+    p3_value,
+    ' / П9:',
+    parseFloat(p9),
+    ' / prepared_lx:',
+    prepared_lx,
+    ' / c1:',
+    c1,
+    ' / fitting:',
+    fitting
+  );
   // console.log('lx', lx);
   // console.log('c1', c1);
   // console.log('c2', c2);

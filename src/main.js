@@ -53,16 +53,6 @@ const store = createStore({
       // console.log(payload);
       state.answ[payload.id] = payload.value;
 
-      this.commit('res');
-      this.commit('result_sleeve');
-      this.commit('result_lug');
-
-      // расчет длины и условий из "Результат и рекомендации"
-
-      //переписать на единую функцию
-
-      // qwe1 = 0 или 1 - указатель на тип монтажа
-      //if (state.answ.qwe2 && state.answ.qwe3 && state.answ.qwe9) {
       let fitting_res = fittingMethod(
         state.answ.qwe1,
         state.answ.qwe2,
@@ -79,6 +69,10 @@ const store = createStore({
       //}
 
       console.log(state.answ);
+
+      this.commit('res');
+      this.commit('result_sleeve');
+      this.commit('result_lug');
     },
 
     res(state) {
@@ -109,7 +103,8 @@ const store = createStore({
       // console.log(state.result_arr);
 
       //Длина монтажной части
-      state.result_arr[5] = 'L1';
+      state.result_arr[5] = state.prepared_lx ? state.prepared_lx : 'L1';
+
       //Расчет кабеля
       if (state.answ['qwe8'] == '1') {
         state.result_cable = 'МКЭШ 5х0,75';
