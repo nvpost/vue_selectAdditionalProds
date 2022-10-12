@@ -15,19 +15,8 @@
     <ConditionMessage2 />
   </div>
   {{ $store.state.condition1 }}, {{ $store.state.condition2 }}
-  <div class="results">
-    <strong>Результат</strong>
-    <p><b>Датчик:</b> {{ $store.state.result_arr.join('.') }}</p>
-    <p><b>Гильза:</b> {{ $store.state.result_sleeve.join('.') }}</p>
-    <p><b>Бобышка:</b> {{ $store.state.result_lug.join('.') }}</p>
-  </div>
-  <div class="hello">
-    <div v-for="(q, q_index) in questions" :key="q_index">
-      <Radio :question="q" v-if="q.answ.type == 'radio'" />
-      <Number :question="q" v-if="q.answ.type == 'number'" />
-      <Select :question="q" v-if="q.answ.type == 'select'" />
-    </div>
-  </div>
+
+<MainContent :questions='questions'>
 </template>
 
 <script>
@@ -38,6 +27,8 @@ import Select from './inputs/Select.vue';
 import ConditionMessage1 from './interface/ConditionMessage1.vue';
 import ConditionMessage2 from './interface/ConditionMessage2.vue';
 
+import MainContent from './MainContent.vue';
+
 export default {
   name: 'Main',
   components: {
@@ -46,6 +37,7 @@ export default {
     Select,
     ConditionMessage1,
     ConditionMessage2,
+    MainContent
   },
   props: ['mes', 'questions'],
   created() {
