@@ -10,7 +10,7 @@
   <div
     class="condition_message"
     id="condition_message"
-    v-if="$store.state.condition2 === false"
+    v-if="$store.state.condition2 != 0"
   >
     <ConditionMessage2 />
   </div>
@@ -21,7 +21,6 @@
 <script>
 import ConditionMessage1 from './interface/ConditionMessage1.vue';
 import ConditionMessage2 from './interface/ConditionMessage2.vue';
-
 import QuestionsContent from './QuestionsContent.vue';
 
 export default {
@@ -64,6 +63,7 @@ a {
 .hello {
   margin-bottom: 180px;
 }
+
 .results {
   position: fixed;
   background-color: #fff;
@@ -71,27 +71,5 @@ a {
   bottom: 0px;
   padding: 10px;
   border-top: 1px solid #ccc;
-}
-
-.message_block {
-  border: 1px solid;
-  padding: 10px;
-  position: relative;
-}
-.error {
-  background-color: #ffcdd2;
-}
-.success {
-  background-color: #81c784;
-}
-.success span {
-  line-height: 0;
-  font-size: 26px;
-}
-.close {
-  position: absolute;
-  right: 15px;
-  top: 6px;
-  cursor: pointer;
 }
 </style>

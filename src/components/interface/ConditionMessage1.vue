@@ -31,4 +31,26 @@ export default {
 
 <style scoped>
 
+.message_block {
+  border: 1px solid;
+  padding: 10px;
+  position: relative;
+  margin: 10px;
+}
+.error {
+  background-color: #ffcdd2;
+}
+.success {
+  background-color: #81c784;
+}
+.success span {
+  line-height: 0;
+  font-size: 26px;
+}
+.close {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  cursor: pointer;
+}
 </style>
