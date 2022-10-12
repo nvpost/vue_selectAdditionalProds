@@ -14,10 +14,8 @@
   >
     <ConditionMessage2 />
   </div>
-  <span>
-  {{ $store.state.condition1 }}, {{ $store.state.condition2 }}
-  </span>
-<QuestionsContent :questions='questions'>
+  <span> {{ $store.state.condition1 }}, {{ $store.state.condition2 }} </span>
+  <QuestionsContent :questions="questions" />
 </template>
 
 <script>
@@ -38,7 +36,7 @@ export default {
     // Select,
     ConditionMessage1,
     ConditionMessage2,
-    QuestionsContent
+    QuestionsContent,
   },
   props: ['mes', 'questions'],
   created() {
