@@ -16,6 +16,7 @@
   </div>
   <span> {{ $store.state.condition1 }}, {{ $store.state.condition2 }} </span>
   <QuestionsContent :questions="questions" />
+  <Results />
 </template>
 
 <script>
@@ -23,12 +24,15 @@ import ConditionMessage1 from './interface/ConditionMessage1.vue';
 import ConditionMessage2 from './interface/ConditionMessage2.vue';
 import QuestionsContent from './QuestionsContent.vue';
 
+import Results from './interface/Results.vue';
+
 export default {
   name: 'Main',
   components: {
     ConditionMessage1,
     ConditionMessage2,
     QuestionsContent,
+    Results,
   },
   props: ['mes', 'questions'],
   created() {

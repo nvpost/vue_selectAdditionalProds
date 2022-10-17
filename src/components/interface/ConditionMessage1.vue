@@ -18,7 +18,7 @@
     </p>
     Коэффициент погружения: {{ $store.state.condition1 }}
   </div>
-  </div>
+
   <div class="message_block success c1" v-if="$store.state.condition1">
     Условие 1. Рассчитано. <span>&#128504;</span>
   </div>

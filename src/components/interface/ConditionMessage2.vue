@@ -15,9 +15,6 @@
       <li>Пункт 4. Установить другую длину бобышки</li>
     </ul>
     </p>
-
-
-
 </div>
 <div class="message_block success c1" v-if="$store.state.condition2===true">
     Условие 2. Рассчитано. <span>&#128504;</span>
