@@ -13,6 +13,7 @@ export default {
     Main,
   },
   created() {
+    this.$store.commit('setDefaultAnsw');
     this.$store.commit('res');
   },
   data() {

@@ -8,7 +8,9 @@
           :id="'val' + question.id + '_' + val_index"
           :name="'val' + question.id"
           :checked="
-            val_index == question.answ.values[0].default_id ? 'checked' : false
+            $store.state.answ['qwe' + question.id] == val_index
+              ? 'checked'
+              : false
           "
           @change="
             $store.commit('addValue', {
