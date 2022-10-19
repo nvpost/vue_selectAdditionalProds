@@ -1,39 +1,26 @@
 <template>
-  <div
-    class="condition_message"
-    id="condition_message"
-    v-if="$store.state.condition1"
-  >
-    <ConditionMessage1 />
-  </div>
 
-  <div
-    class="condition_message"
-    id="condition_message"
-    v-if="$store.state.condition2 != 0"
-  >
-    <ConditionMessage2 />
-  </div>
   <span> {{ $store.state.condition1 }}, {{ $store.state.condition2 }} </span>
+  <Messages />
   <QuestionsContent :questions="questions" />
   <Results />
 </template>
 
 <script>
-import ConditionMessage1 from './interface/ConditionMessage1.vue';
-import ConditionMessage2 from './interface/ConditionMessage2.vue';
+
 import QuestionsContent from './QuestionsContent.vue';
+import Messages from './interface/Messages.vue'
 
 import Results from './interface/Results.vue';
+
 
 export default {
   name: 'Main',
   components: {
-    ConditionMessage1,
-    ConditionMessage2,
     QuestionsContent,
+    Messages,
     Results,
-  },
+},
   props: ['mes', 'questions'],
   created() {
     this.$store.commit('setDefaultAnsw');
@@ -65,12 +52,5 @@ a {
   margin-bottom: 180px;
 }
 
-.results {
-  position: fixed;
-  background-color: #fff;
-  width: 100%;
-  bottom: 0px;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-}
+
 </style>

@@ -27,7 +27,7 @@
 <script>
 export default {
   name: 'ConditionMessage1',
-};
+}
 </script>
 
 <style scoped>
