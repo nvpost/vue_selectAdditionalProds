@@ -21,6 +21,7 @@ const store = createStore({
       qwe8: '0',
       qwe10: '0',
     },
+    
     questions: questions_data,
     result_arr: ['ДТС'],
     result_sleeve: ['ГЗ', 0, 0, '1.1', 0],

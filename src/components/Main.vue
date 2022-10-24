@@ -1,9 +1,24 @@
 <template>
 
   <span> {{ $store.state.condition1 }}, {{ $store.state.condition2 }} </span>
-  <Messages />
-  <QuestionsContent :questions="questions" />
-  <Results />
+  <div class="app_container">
+ 
+    <div class="questionsContent">
+      <QuestionsContent :questions="questions" />
+    </div>
+    <div class="messages_field">
+      <div class="messages">
+        <Messages />
+      </div>
+
+      <div class="results_block">
+        <Results />
+      </div>
+
+    </div>
+
+  </div>
+
 </template>
 
 <script>
@@ -50,6 +65,12 @@ a {
 }
 .hello {
   margin-bottom: 180px;
+}
+.app_container{
+  display: flex;
+  max-width: 1200px;
+  margin-left: auto;
+
 }
 
 
