@@ -91,10 +91,14 @@ const store = createStore({
         }
       }
       //чувствительный элемент
-      if (state.answ['qwe6']) {
-        state.result_arr[2] =
+      // if (state.answ['qwe6']) {
+      //   state.result_arr[2] =
+      //     state.questions[5].answ.values[0].options[state.answ['qwe6']];
+      // }
+      state.result_arr[2] =
           state.questions[5].answ.values[0].options[state.answ['qwe6']];
-      }
+      console.log(state.questions[5].answ.values[0].options[state.answ['qwe6']])
+      console.log(state.result_arr[2])
       //Класс допуска
       state.result_arr[3] =
         state.questions[6].answ.values[0].options[state.answ['qwe7']];
@@ -104,7 +108,7 @@ const store = createStore({
       // console.log(state.result_arr);
 
       //Длина монтажной части
-      state.result_arr[5] = state.prepared_lx ? state.prepared_lx : 'L1';
+      state.result_arr[5] = state.prepared_lx ? state.prepared_lx : 60;
 
       //Расчет кабеля
       if (state.answ['qwe8'] == '1') {
