@@ -2,9 +2,7 @@
     <div class="results">
       <strong>Результат</strong>
       <p>
-        <b>Датчик:</b> {{ $store.state.result_arr.join('.') }}
-        {{ doSensor($store.state.result_arr) }}
-        {{sensor_marks}}
+        <b>Датчик:</b> {{ doSensor($store.state.result_arr) }}
       </p>
       <p><b>Гильза:</b> {{ $store.state.result_sleeve.join('.') }}</p>
       <p><b>Бобышка:</b> {{ $store.state.result_lug.join('.') }}</p>
@@ -22,10 +20,12 @@
     },
     methods: {
       doSensor(sensor_arr) {
-        console.log(sensor_arr);
-        sensor_arr.forEach((i) => {
-          // console.log(i);
-        });
+        let sensor_res = ''
+        sensor_arr.forEach((i, idx) => {
+          sensor_res+=i+this.sensor_marks[idx]
+        })
+        console.log(sensor_res)
+        return sensor_res
       },
     },
   };

@@ -49,20 +49,20 @@ function fittingMethod(fitting, p2, p3, p7, p9) {
   let l_submerge2 = c2 ? min_lx - parseFloat(p9) - 4 : false;
   let l_submerge3 = c2 ? max_lx - parseFloat(p9) - 4 : false;
 
-  console.log(
-    'П2:',
-    parseFloat(p2),
-    ' / П3:',
-    p3_value,
-    ' / П9:',
-    parseFloat(p9),
-    ' / prepared_lx:',
-    prepared_lx,
-    ' / c1:',
-    c1,
-    ' / fitting:',
-    fitting
-  );
+  // console.log(
+  //   'П2:',
+  //   parseFloat(p2),
+  //   ' / П3:',
+  //   p3_value,
+  //   ' / П9:',
+  //   parseFloat(p9),
+  //   ' / prepared_lx:',
+  //   prepared_lx,
+  //   ' / c1:',
+  //   c1,
+  //   ' / fitting:',
+  //   fitting
+  // );
   // console.log('lx', lx);
   // console.log('c1', c1);
   // console.log('c2', c2);
