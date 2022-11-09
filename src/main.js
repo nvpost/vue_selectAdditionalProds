@@ -22,9 +22,11 @@ const store = createStore({
       qwe10: '0',
     },
     
+    lx_range: [60, 2000],
+
     questions: questions_data,
     result_arr: ['ДТС'],
-    result_sleeve: ['ГЗ', 0, 0, '1.1', 0],
+    result_sleeve: ['ГЗ', 0, '1.1', 0],
     result_lug: ['Б', 0, '1.20х1,5'],
     result_cable: 'МКЭШ 3х0,5',
 
@@ -45,28 +47,18 @@ const store = createStore({
         qwe6: 0,
         qwe7: 1,
         qwe8: 0,
-        qwe9: 5,
+        qwe9: 25,
         qwe10: 0,
       };
       result_condition1: false;
     },
     addValue(state, payload) {
       // console.log(payload);
-      state.answ[payload.id] = payload.value;
+      if(payload) {
+        state.answ[payload.id] = payload.value
+      }
 
-      let fitting_res = fittingMethod(
-        state.answ.qwe1,
-        state.answ.qwe2,
-        state.answ.qwe3,
-        state.answ.qwe7,
-        state.answ.qwe9
-      );
 
-      state.prepared_lx = fitting_res['prepared_lx'];
-      state.max_lx = fitting_res['max_lx'];
-      state.min_lx = fitting_res['min_lx'];
-      state.condition1 = fitting_res['c1'];
-      state.condition2 = fitting_res['c2'];
       //}
 
       console.log(state.answ);
@@ -108,7 +100,24 @@ const store = createStore({
       // console.log(state.result_arr);
 
       //Длина монтажной части
-      state.result_arr[5] = state.prepared_lx ? state.prepared_lx : 60;
+
+      let fitting_res = fittingMethod(
+        state.answ.qwe1,
+        state.answ.qwe2,
+        state.answ.qwe3,
+        state.answ.qwe7,
+        state.answ.qwe9
+      );
+
+      state.prepared_lx = fitting_res['prepared_lx'];
+      state.max_lx = fitting_res['max_lx'];
+      state.min_lx = fitting_res['min_lx'];
+      state.condition1 = fitting_res['c1'];
+      state.condition2 = fitting_res['c2'];
+
+
+      state.result_arr[5] = state.prepared_lx ? state.prepared_lx : state.lx_range[0];
+      state.result_sleeve[3] = state.prepared_lx ? state.prepared_lx : state.lx_range[0];
 
       //Расчет кабеля
       if (state.answ['qwe8'] == '1') {

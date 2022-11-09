@@ -14,6 +14,8 @@ function fittingMethod(fitting, p2, p3, p7, p9) {
     : parseFloat(p2) * parseFloat(p3_value) + parseFloat(p9) + 4;
 
   // let prepared_lx = Math.round(lx / 10) * 10;
+  lx = lx<60 ? 60 : lx
+  console.log(lx)
   let prepared_lx = Math.ceil(lx / 10) * 10;
 
   //min_lx=L2, max_lx = L3

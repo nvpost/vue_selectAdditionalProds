@@ -14,7 +14,7 @@
     name: 'Results',
     data() {
       return{
-        sensor_marks: ['', '-', '.', '', '.', '/'],
+        sensor_marks: ['', '', '-', '.', '', '.', '/'],
       }
       
     },
@@ -22,11 +22,16 @@
       doSensor(sensor_arr) {
         let sensor_res = ''
         sensor_arr.forEach((i, idx) => {
-          sensor_res+=i+this.sensor_marks[idx]
+          sensor_res+=this.sensor_marks[idx]+i
         })
         console.log(sensor_res)
         return sensor_res
       },
+
+      getPriceData(sensor){
+        url = 'https://owen.ru/upl_files/modules/price_getter/get.php?articles='+sensor
+
+      }
     },
   };
   </script>
