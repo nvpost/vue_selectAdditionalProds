@@ -25,12 +25,17 @@
           sensor_res+=this.sensor_marks[idx]+i
         })
         console.log(sensor_res)
+        //Выполняем только если есловия 2 расчитано
+        // this.getPriceData(sensor_res)
+        
         return sensor_res
       },
 
       getPriceData(sensor){
-        url = 'https://owen.ru/upl_files/modules/price_getter/get.php?articles='+sensor
-
+        let url = 'https://owen.ru/upl_files/modules/price_getter/get.php?articles='+sensor
+        fetch(url)
+        .then(res=>res.json())
+        .then(data=>{console.log(data)})
       }
     },
   };

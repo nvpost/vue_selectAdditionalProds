@@ -76,6 +76,7 @@ const store = createStore({
           state.result_arr[1] = '045';
         }
       } else {
+        //до 1000
         if (state.answ['qwe4'] == '0') {
           state.result_arr[1] = '064';
         } else {
@@ -89,8 +90,7 @@ const store = createStore({
       // }
       state.result_arr[2] =
           state.questions[5].answ.values[0].options[state.answ['qwe6']];
-      console.log(state.questions[5].answ.values[0].options[state.answ['qwe6']])
-      console.log(state.result_arr[2])
+
       //Класс допуска
       state.result_arr[3] =
         state.questions[6].answ.values[0].options[state.answ['qwe7']];
@@ -117,6 +117,7 @@ const store = createStore({
 
 
       state.result_arr[5] = state.prepared_lx ? state.prepared_lx : state.lx_range[0];
+      // state.result_sleeve[2] = ;
       state.result_sleeve[3] = state.prepared_lx ? state.prepared_lx : state.lx_range[0];
 
       //Расчет кабеля

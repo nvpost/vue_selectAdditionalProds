@@ -7,7 +7,7 @@ function fittingMethod(fitting, p2, p3, p7, p9) {
   //Длина У (П1) = (П2*П3/0,7) +П9+4-14  = Lx
   //Длина П (П1) = П2*П3+П9+4 = Lx
   let p3_value = questions_data[2].answ.values[0].options[p3];
-  console.log(parseFloat(p3_value));
+
 
   let lx = fitting
     ? (parseFloat(p2) * parseFloat(p3_value)) / 0.7 + parseFloat(p9) + 4 - 14
@@ -15,7 +15,7 @@ function fittingMethod(fitting, p2, p3, p7, p9) {
 
   // let prepared_lx = Math.round(lx / 10) * 10;
   lx = lx<60 ? 60 : lx
-  console.log(lx)
+  // console.log(lx)
   let prepared_lx = Math.ceil(lx / 10) * 10;
 
   //min_lx=L2, max_lx = L3
